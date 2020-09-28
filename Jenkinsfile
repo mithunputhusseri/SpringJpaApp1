@@ -74,7 +74,7 @@ pipeline {
 	stage('Run JMeter Test')
 	  {
 		  steps{
-			bat label: 'Moving to folder', script: 'C:\\Program Files\\apache-jmeter-5.3\\bin'  
+			bat label: 'Moving to folder', script: 'cd C:\\Program Files\\apache-jmeter-5.3\\bin'  
 	  	bat label: 'JMeter', script: 'jmeter -Jjmeter.save.saveservice.output_format=xml -n -t C:\\Users\\mitp\\Desktop\\tmp\\results.jmx -l C:\\Users\\mitp\\Desktop\\tmp\\Test.jtl'
 		  }  
 	}
