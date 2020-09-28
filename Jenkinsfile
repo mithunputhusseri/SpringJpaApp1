@@ -73,9 +73,10 @@ pipeline {
 	} 
 	stage('Run JMeter Test')
 	  {
-		 bat 'cd C:\Program Files\apache-jmeter-5.3\bin'
-   		bat 'jmeter -Jjmeter.save.saveservice.output_format=xml -n -t C:\Users\mitp\Desktop\tmp\results.jmx -l C:\Users\mitp\Desktop\tmp\Test.jtl'
-	  }
+		  steps{
+	  	bat label: 'JMeter', script: 'jmeter -Jjmeter.save.saveservice.output_format=xml -n -t C:\Users\mitp\Desktop\tmp\results.jmx -l C:\Users\mitp\Desktop\tmp\Test.jtl'
+		  }  
+	}
 
     
 
