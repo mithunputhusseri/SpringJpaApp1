@@ -75,6 +75,7 @@ pipeline {
 	  {
 		  steps{
 			bat label: 'Moving to folder', script: 'cd C:\\apache-jmeter-5.3\\bin'  
+			  bat label: 'dir' ,script: 'dir'
 	  	bat label: 'JMeter', script: 'jmeter -Jjmeter.save.saveservice.output_format=xml -n -t C:\\Users\\mitp\\Desktop\\tmp\\results.jmx -l C:\\Users\\mitp\\Desktop\\tmp\\Test.jtl'
 		  }  
 	}
