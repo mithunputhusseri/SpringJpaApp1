@@ -54,9 +54,7 @@ pipeline {
 		 qualitygate = waitForQualityGate()
                     if (qualitygate.status != "OK") {
                         currentBuild.result = "UNSTABLE"
-			    echo 'Testing stopped'
                     }
-		 echo 'sonqrqube success 112233'
 
           }
 
