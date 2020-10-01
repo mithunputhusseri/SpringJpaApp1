@@ -51,20 +51,17 @@ pipeline {
 		 -Dsonar.host.url=http://localhost:9000 \
 
  		-Dsonar.login=ff5c276939ab066fea300810e7006165c6243c7b'''
+		 qualitygate = waitForQualityGate()
+                    if (qualitygate.status != "OK") {
+                        currentBuild.result = "UNSTABLE"
+			    echo 'Testing stopped'
+                    }
+		 echo 'sonqrqube success 112233'
 
           }
 
       }
 	
-	stage("Quality Gate") {
-            steps {
-                timeout(time: 1, unit: 'HOURS') {
-                    // Parameter indicates whether to set pipeline to UNSTABLE if Quality Gate fails
-                    // true = set pipeline to UNSTABLE, false = don't
-                    waitForQualityGate abortPipeline: false
-                }
-            }
-        }
 
 	  
 
