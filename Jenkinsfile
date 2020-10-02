@@ -51,10 +51,6 @@ pipeline {
 		 -Dsonar.host.url=http://localhost:9000 \
 
  		-Dsonar.login=ff5c276939ab066fea300810e7006165c6243c7b'''
-		 qualitygate = waitForQualityGate()
-                    if (qualitygate.status != "OK") {
-                        currentBuild.result = "UNSTABLE"
-                    }
 
           }
 
