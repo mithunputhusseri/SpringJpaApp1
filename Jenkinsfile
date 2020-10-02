@@ -49,6 +49,7 @@ pipeline {
  		-Dsonar.login=ff5c276939ab066fea300810e7006165c6243c7b'''
     } 
   }
+  }
 stage("Quality Gate") {
             steps {
                 timeout(time: 1, unit: 'HOURS') {
