@@ -42,19 +42,21 @@ pipeline {
 
 	  
 
-	stage('SonarQube'){
-
-         steps{
-
-            bat label: '', script: '''mvn clean package sonar:sonar \
-
+	stage('SonarQube analysis') {
+    withSonarQubeEnv('SonarQube') {
+      bat label: '', script: '''mvn clean package sonar:sonar \
 		 -Dsonar.host.url=http://localhost:9000 \
-
  		-Dsonar.login=ff5c276939ab066fea300810e7006165c6243c7b'''
-
-          }
-
-      }
+    } 
+  }
+}
+stage("Quality Gate"){
+  timeout(time: 1, unit: 'HOURS') {
+    def qg = waitForQualityGate() 
+    if (qg.status != 'OK') {
+      error "Pipeline aborted due to quality gate failure: ${qg.status}"
+    }
+  }
 	
 	  
 
