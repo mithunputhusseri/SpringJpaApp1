@@ -43,13 +43,15 @@ pipeline {
 	  
 
 	stage('SonarQube analysis') {
+		steps{
     withSonarQubeEnv('SonarQube') {
       bat label: '', script: '''mvn clean package sonar:sonar \
 		 -Dsonar.host.url=http://localhost:9000 \
  		-Dsonar.login=ff5c276939ab066fea300810e7006165c6243c7b'''
     } 
   }
-  }
+}
+  
 stage("Quality Gate") {
             steps {
                 timeout(time: 1, unit: 'HOURS') {
