@@ -48,13 +48,18 @@ pipeline {
       bat label: '', script: '''mvn clean package sonar:sonar \
 		 -Dsonar.host.url=http://35.175.103.228:9000 \
  		-Dsonar.login=0ac5ae9446e1896cf7d84e8d87b22a8f661856f4'''
-	 waitForQualityGate abortPipeline: true
+	 
     } 
 	
   }
 }
 	  
-
+stage('quality gate')
+	  {
+		  steps{
+			  waitForQualityGate abortPipeline: true
+		  }
+	  }
 	stage('Maven Package'){
 
 		steps{
