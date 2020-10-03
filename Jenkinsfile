@@ -55,12 +55,6 @@ steps {
             }
 }
 	  
-stage("Quality Gate 1") {
-            steps {
-                waitForQualityGate abortPipeline: true
-            }
-        }
-	  
 
 	stage('Maven Package'){
 
