@@ -46,21 +46,11 @@ pipeline {
 		steps{
     withSonarQubeEnv('SonarQube') {
       bat label: '', script: '''mvn clean package sonar:sonar \
-		 -Dsonar.host.url=http://localhost:9000 \
- 		-Dsonar.login=ff5c276939ab066fea300810e7006165c6243c7b'''
+		 -Dsonar.host.url=http://http://3.238.72.11:9000 \
+ 		-Dsonar.login=03659a70455e6013aa2417d0013af6aff7cde0de'''
     } 
   }
 }
-  
-stage("Quality Gate") {
-            steps {
-                timeout(time: 1, unit: 'HOURS') {
-                    // Parameter indicates whether to set pipeline to UNSTABLE if Quality Gate fails
-                    // true = set pipeline to UNSTABLE, false = don't
-                    waitForQualityGate abortPipeline: true
-                }
-            }
-        }
 	  
 
 	stage('Maven Package'){
