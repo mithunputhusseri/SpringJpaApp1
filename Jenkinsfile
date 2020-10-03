@@ -54,7 +54,7 @@ pipeline {
 	  
 stage("Quality Gate 1") {
             steps {
-                waitForQualityGate(credentialsId: ‘tesla’) abortPipeline: true
+                waitForQualityGate abortPipeline: true
             }
         }
 	  
