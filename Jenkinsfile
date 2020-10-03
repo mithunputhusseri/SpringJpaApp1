@@ -50,6 +50,9 @@ pipeline {
  		-Dsonar.login=0ac5ae9446e1896cf7d84e8d87b22a8f661856f4'''
     } 
   }
+steps {
+                waitForQualityGate abortPipeline: true
+            }
 }
 	  
 stage("Quality Gate 1") {
