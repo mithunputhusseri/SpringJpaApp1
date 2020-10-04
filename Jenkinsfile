@@ -72,7 +72,6 @@ stage("Quality Gate") {
 
 			echo 'Project packaging stage'
 
-			sh 'mvn package'
 
 		}
 
