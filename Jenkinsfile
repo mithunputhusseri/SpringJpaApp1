@@ -62,10 +62,9 @@ stage("Quality Gate") {
         }
 	stage('Run JMeter Test')
 	  {
-		  
 		  steps{
-			  sh 'ls'
-		 	sh 'jmeter/apache-jmeter-5.3/bin/./jmeter.sh -n -t jmeter/apache-jmeter-5.3/bin/examples/files/results.jmx'
+		//cd C:\\apache-jmeter-5.3\\bin
+	  	bat label: 'JMeter', script: 'C:\\apache-jmeter-5.3\\bin\\jmeter -Jjmeter.save.saveservice.output_format=xml -n -t C:\\Users\\mitp\\Desktop\\tmp\\results.jmx -l C:\\Users\\mitp\\Desktop\\tmp\\Test.jtl'
 		  }  
 	}
 	stage('Maven Package'){
