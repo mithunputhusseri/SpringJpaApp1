@@ -98,6 +98,12 @@ script{
 }
 	} 
 
+
+	
+
+    
+
+  }
 post {
         success {
             mail to: 'mithunputhusseri@gmail.com',
@@ -110,10 +116,5 @@ post {
              body: "Something is wrong with ${env.BUILD_URL} and failed to pass through ${myVariable} stage"
     }
     }
-	
-
-    
-
-  }
 
 }
