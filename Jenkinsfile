@@ -62,7 +62,9 @@ stage("Quality Gate") {
         }
 	stage('Run JMeter Test')
 	  {
+		  
 		  steps{
+			  sh 'ls'
 		 	sh 'jmeter/apache-jmeter-5.3/bin/./jmeter.sh -n -t jmeter/apache-jmeter-5.3/bin/examples/files/results.jmx'
 		  }  
 	}
